@@ -7,6 +7,8 @@ import CardContent from "@material-ui/core/CardContent";
 import Avatar from "@material-ui/core/Avatar";
 import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
+import Button from "@material-ui/core/Button";
+
 import HighlightOffIcon from "@material-ui/icons/HighlightOff";
 
 import "./modalBar.css";
@@ -16,94 +18,101 @@ import Comments from "./Comments";
 import RateBook from "./RateBook";
 
 export default function ModalContent({ book, handleClose }) {
-  const classes = useStyles();
+    const classes = useStyles();
 
-  return (
-    <Card className={clsx(classes.root, "modal-bar")}>
-      <CardMedia className={classes.media} image={book.image}>
-        <CardHeader
-          avatar={
-            <Avatar
-              alt={book.addedBy}
-              aria-label="modal"
-              style={{ backgroundColor: "#eee" }}
-            />
-          }
-          action={
-            <IconButton onClick={handleClose} aria-label="settings">
-              <HighlightOffIcon style={{ color: "rgba(200, 200, 200)" }} />
-            </IconButton>
-          }
-          title={book.addedBy}
-          subheader={book.createdAt && book.createdAt.split("").splice(0, 10)}
-          classes={{ label: "modal-bar" }}
-          style={{
-            backgroundColor: "rgba(33, 33, 33, 0.7)",
-            color: "rgba(232, 232, 232)",
-          }}
-          subheaderTypographyProps={{ style: { color: "rgba(232, 232, 232)" } }}
-        />
-      </CardMedia>
-      <div className={classes.wrapper}>
-        <CardContent>
-          <Typography variant="caption" color="textSecondary" component="p">
-            {book.category}
-          </Typography>
-          <Typography variant="h4" color="textPrimary" component="p">
-            {book.name}
-          </Typography>
-          <Typography variant="h6" color="textSecondary" component="p">
-            {book.author}
-          </Typography>
-        </CardContent>
+    return (
+        <Card className={clsx(classes.root, "modal-bar")}>
+            <CardMedia className={classes.media} image={book.image}>
+                <CardHeader
+                    avatar={<Avatar alt={book.addedBy} aria-label="modal" style={{ backgroundColor: "#eee" }} />}
+                    action={
+                        <IconButton onClick={handleClose} aria-label="settings">
+                            <HighlightOffIcon style={{ color: "rgba(200, 200, 200)" }} />
+                        </IconButton>
+                    }
+                    title={book.addedBy}
+                    subheader={book.createdAt && book.createdAt.split("").splice(0, 10)}
+                    classes={{ label: "modal-bar" }}
+                    style={{
+                        backgroundColor: "rgba(33, 33, 33, 0.7)",
+                        color: "rgba(232, 232, 232)",
+                    }}
+                    subheaderTypographyProps={{ style: { color: "rgba(232, 232, 232)" } }}
+                />
+            </CardMedia>
+            <div className={classes.wrapper}>
+                <CardContent>
+                    <Typography variant="caption" color="textSecondary" component="p">
+                        {book.category}
+                    </Typography>
+                    <Typography variant="h4" color="textPrimary" component="p">
+                        {book.name}
+                    </Typography>
+                    <Typography variant="h6" color="textSecondary" component="p">
+                        {book.author}
+                    </Typography>
+                    <Button
+                        target="_blank"
+                        href={book.buyLink}
+                        variant={"contained"}
+                        size="small"
+                        color="primary"
+                        className={classes.buyLink}>
+                        Buy book
+                    </Button>
+                </CardContent>
 
-        <CardContent>
-          <Typography variant="body1" color="textPrimary" component="p">
-            {book.description}
-          </Typography>
-        </CardContent>
+                <CardContent>
+                    <Typography variant="body1" color="textPrimary" component="p">
+                        {book.description}
+                    </Typography>
+                </CardContent>
 
-        <CardContent className={classes.card}>
-          <h4>About book:</h4>
-          <Typography variant="caption" color="textSecondary" component="p">
-            pages: {book.pages}
-          </Typography>
-          <Typography variant="caption" color="textSecondary" component="p">
-            year: {book.year}
-          </Typography>
-        </CardContent>
+                <CardContent className={classes.card}>
+                    <h4>About book:</h4>
+                    <Typography variant="caption" color="textSecondary" component="p">
+                        pages: {book.pages}
+                    </Typography>
+                    <Typography variant="caption" color="textSecondary" component="p">
+                        year: {book.year}
+                    </Typography>
+                </CardContent>
 
-        <CardContent>
-          <RateBook bookId={book._id} authorRating={book.rating} />
-        </CardContent>
+                <CardContent>
+                    <RateBook bookId={book._id} authorRating={book.rating} />
+                </CardContent>
 
-        <Comments bookId={book._id} />
-      </div>
-    </Card>
-  );
+                <Comments bookId={book._id} />
+            </div>
+        </Card>
+    );
 }
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    maxWidth: "92vw",
-    overflowY: "scroll",
-    borderRadius: "20px",
-    [theme.breakpoints.up("md")]: {
-      width: "35vw",
+    root: {
+        maxWidth: "92vw",
+        overflowY: "scroll",
+        borderRadius: "20px",
+        [theme.breakpoints.up("md")]: {
+            width: "35vw",
+        },
     },
-  },
-  media: {
-    height: "40vh",
+    media: {
+        height: "40vh",
 
-    // paddingTop: "56.25%", // 16:9
-  },
-  wrapper: {
-    padding: "8px",
-  },
-  avatar: {
-    backgroundColor: "#00b0f6",
-  },
-  card: {
-    padding: "0px 16px",
-  },
+        // paddingTop: "56.25%", // 16:9
+    },
+    wrapper: {
+        padding: "8px",
+    },
+    avatar: {
+        backgroundColor: "#00b0f6",
+    },
+    card: {
+        padding: "0px 16px",
+    },
+    buyLink: {
+        marginRight: "15px",
+        marginTop: "15px",
+    },
 }));
