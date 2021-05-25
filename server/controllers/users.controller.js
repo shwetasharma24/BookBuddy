@@ -25,6 +25,8 @@ function register(req, res, next) {
     .then((user) => res.json(user))
     .catch((err) => next(err));
 }
+
+
 function getByUserName(req, res, next) {
   const { username } = req.params;
 

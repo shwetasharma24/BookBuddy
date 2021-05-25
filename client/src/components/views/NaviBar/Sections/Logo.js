@@ -12,7 +12,7 @@ export default function Logo() {
         <Icon icon={bookIcon} style={{ fontSize: "38px", color: "#00b0f6" }} />
       </a>
       <span className={classes.logoText}>
-        online<b>LIBRARY</b>
+        Book<b> Buddy</b>
       </span>
     </>
   );

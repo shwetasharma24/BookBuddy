@@ -1,0 +1,4 @@
+{
+    "secret": "secret",
+    "connectionString": "mongodb+srv://dbUser:dbUser@cluster0.l8caq.mongodb.net/onlibraryDB?retryWrites=true&w=majority"
+}

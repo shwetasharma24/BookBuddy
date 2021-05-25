@@ -1,0 +1,21 @@
+Project:
+
+Authentication: JWT use kiya hai.
+register click par frontend me user_actions.js call hoga
+
+redux: front end state management jo repedetly used 
+values store kar lete hain for components to use and 
+fetch. 
+redux : actions, reducers
+
+
+hash: password store k liye in users models.
+passwords authenticated using bcrypt sha256.
+
+
+URL_API.js:
+ctrl+c, ctrl+shift+f , ctrl+v
+
+ui k liye- material UI.
+
+CanvasJSReact library for pie chart.

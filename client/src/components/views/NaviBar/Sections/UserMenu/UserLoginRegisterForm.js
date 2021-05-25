@@ -131,9 +131,9 @@ export default function Form({ type }) {
           )}
         </form>
       </div>
-      <Box mt={5}>
+      {/* <Box mt={5}>
         <Copyright />
-      </Box>
+      </Box> */}
     </Container>
   );
 }
@@ -158,17 +158,17 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function Copyright() {
-  return (
-    <Typography
-      style={{ padding: "20px" }}
-      variant="body2"
-      color="textSecondary"
-      align="center"
-    >
-      {"Copyright © "}
-      <Link color="inherit">Dawid Kurpiel</Link> {new Date().getFullYear()}
-      {"."}
-    </Typography>
-  );
-}
+// function Copyright() {
+//   return (
+//     <Typography
+//       style={{ padding: "20px" }}
+//       variant="body2"
+//       color="textSecondary"
+//       align="center"
+//     >
+//       {"Copyright © "}
+//       <Link color="inherit">Dawid Kurpiel</Link> {new Date().getFullYear()}
+//       {"."}
+//     </Typography>
+//   );
+// }

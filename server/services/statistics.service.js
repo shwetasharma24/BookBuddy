@@ -9,6 +9,7 @@ const userService = require("../services/user.service.js");
 const average = (array) => array.reduce((a, b) => a + b) / array.length;
 
 async function getBestBooks(quantity) {
+  // console.log("here");
   const ratings = await booksRatingService.getAll();
 
   const objWithData = ratings.reduce((acc, cur) => {
@@ -26,6 +27,8 @@ async function getBestBooks(quantity) {
   const sortedArray = arrayWithAverageRatings.sort((a, b) => b[1] - a[1]);
 
   const bestIds = sortedArray.map(([bookId]) => bookId);
+
+  // console.log(bestIds);
 
   let counter = 0;
   let i = 0;

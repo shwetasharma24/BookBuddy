@@ -9,7 +9,7 @@ const connectionOptions = {
 
 mongoose
   .connect(
-    process.env.MONGODB_URI || config.connectionString,
+    'mongodb+srv://dbUser:dbUser@cluster0.l8caq.mongodb.net/onlibraryDB?retryWrites=true&w=majority',
     connectionOptions
   )
   .then(() => console.log("MongoDB Connected..."))
