@@ -1,5 +1,6 @@
 const config = require("../../config.json");
 const mongoose = require("mongoose");
+require('dotenv').config();
 const connectionOptions = {
   useCreateIndex: true,
   useNewUrlParser: true,
@@ -7,9 +8,11 @@ const connectionOptions = {
   useFindAndModify: false,
 };
 
+console.log("hello",process.env.MONGO_URI);
+
 mongoose
   .connect(
-    'mongodb+srv://dbUser:dbUser@cluster0.l8caq.mongodb.net/onlibraryDB?retryWrites=true&w=majority',
+    process.env.MONGO_URI,
     connectionOptions
   )
   .then(() => console.log("MongoDB Connected..."))
