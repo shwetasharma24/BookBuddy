@@ -12,7 +12,7 @@ import markersAPI from "utils/markersAPI";
 import RateBookAPI from "utils/bookRateAPI";
 import isLogged from "utils/isLogged";
 
-const cardSizes = [4, 6];
+const cardSizes = [6, 8];
 
 export default function Book({ book, handleModalOpen, buttons = true, fullsize = false, sizeOfCards = 0, children }) {
     const classes = useStyles();
