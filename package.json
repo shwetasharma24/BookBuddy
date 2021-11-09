@@ -14,7 +14,11 @@
     "dev": "concurrently \"npm run backend\" \"npm run start --prefix client\"",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
+<<<<<<< HEAD
   
+=======
+  "license": "ISC",
+>>>>>>> 70fc985e0bf634c5fb4d06d3d7a01eace100338e
   "dependencies": {
     "@material-ui/core": "^4.11.0",
     "@material-ui/icons": "^4.9.1",
